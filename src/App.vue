@@ -23,5 +23,12 @@
 </script>
 
 <style lang="less">
-
+  html {
+    height: 100%;
+    // 利用3D变形来开启GPU加速，以尽可能多的利用硬件能力
+    transform: translate3d(0, 0, 0);
+  }
+  body {
+    min-height: 100%;
+  }
 </style>

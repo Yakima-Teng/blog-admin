@@ -1,11 +1,10 @@
 <template>
   <div v-show="isLoading" class="utils-ball">
-    <span v-for="num in totalBalls" :style="{
+    <span v-for="num in totalBalls" :data-key="num" :style="{
       'animation-delay': (3000 / totalBalls) * num + 'ms',
       'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
-      'top': (100 / (totalBalls + 1) * num) + '%'
+      'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
     }" class="ball"></span>
-    <link rel="stylesheet" type="text/css" href="">
   </div>
 </template>
 
@@ -26,7 +25,7 @@
       resetBalls () {
         let _this = this
         const screenHeight = window.innerHeight
-        const ballHeight = Math.floor(window.innerWidth / 10)
+        const ballHeight = Math.ceil(window.innerWidth / 10)
         _this.totalBalls = Math.floor(screenHeight / ballHeight)
       }
     },
@@ -35,12 +34,12 @@
       let _this = this
       _this.$nextTick(() => {
         _this.resetBalls()
-        window.addEventListener('load', _this.resetBalls, false)
+        window.addEventListener('resize', _this.resetBalls, false)
       })
     },
     beforeDestroy () {
       let _this = this
-      window.removeEventListener('load', _this.resetBalls, false)
+      window.removeEventListener('resize', _this.resetBalls, false)
     }
   }
 </script>
@@ -53,6 +52,7 @@
     bottom: 0;
     right: 0;
     background-color: rgba(240, 255, 255, 1);
+    // background-color: #3498db;
     .ball {
       position: absolute;
       width: 10%;
@@ -62,16 +62,44 @@
       margin-left: 0;
       border-radius: 50%;
       left: 0;
-      transform: translate(0, 0);
-      animation: 3s Ball ease-in-out 0ms infinite alternate;
+      backface-visibility: hidden;
+      perspective: 1000;
+      &:nth-of-type(2n+1) {
+        transform: translate3d(450%, 0, 0) rotateY(0deg);
+        animation: 3s Ball1 ease-in-out 0ms infinite alternate;
+      }
+      &:nth-of-type(2n) {
+        transform: translate3d(450%, 0, 0) rotateX(0deg);
+        animation: 3s Ball2 ease-in-out 0ms infinite alternate;
+      }
     }
   }
-  @keyframes Ball {
+  @keyframes Ball1 {
     0% {
-      transform: translate(0, 0);
+      transform: translate3d(450%, 0, 0) rotateY(0deg);
+    }
+    33% {
+      transform: translate3d(0, 0, 0) rotateY(60deg);
+    }
+    67% {
+      transform: translate3d(900%, 0, 0) rotateY(-60deg);
     }
     100% {
-      transform: translate(900%, 0);
+      transform: translate3d(450%, 0, 0) rotateY(0deg);
+    }
+  }
+  @keyframes Ball2 {
+    0% {
+      transform: translate3d(450%, 0, 0) rotateX(0deg);
+    }
+    33% {
+      transform: translate3d(0, 0, 0) rotateX(60deg);
+    }
+    67% {
+      transform: translate3d(900%, 0, 0) rotateX(-60deg);
+    }
+    100% {
+      transform: translate3d(450%, 0, 0) rotateX(0deg);
     }
   }
 </style>
