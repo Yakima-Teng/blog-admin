@@ -7,7 +7,7 @@ const router = new VueRouter({
   routes: [
     { path: '/index', component: require('./views/Index.vue') },
     { path: '/post', component: require('./views/Post.vue') },
-    { path: '/', redirect: '/post' }
+    { path: '/', redirect: '/index' }
   ]
 })
 
