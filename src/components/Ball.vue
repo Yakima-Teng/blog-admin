@@ -1,10 +1,15 @@
 <template>
   <div v-show="isLoading" class="utils-ball">
     <span v-for="num in totalBalls" :data-key="num" :style="{
-      'animation-delay': (3000 / totalBalls) * num + 'ms',
+      'animation-delay': (6000 / totalBalls) * num + 'ms',
       'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
       'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
-    }" class="ball"></span>
+    }" class="ball ball-DNA1"></span>
+    <span v-for="num in totalBalls" :data-key="num" :style="{
+      'animation-delay': (6000 / totalBalls) * num - 1000 + 'ms',
+      'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
+      'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
+    }" class="ball ball-DNA1"></span>
   </div>
 </template>
 
@@ -25,7 +30,7 @@
       resetBalls () {
         let _this = this
         const screenHeight = window.innerHeight
-        const ballHeight = Math.ceil(window.innerWidth / 10)
+        const ballHeight = Math.ceil(window.innerWidth / 20)
         _this.totalBalls = Math.floor(screenHeight / ballHeight)
       }
     },
@@ -55,51 +60,91 @@
     // background-color: #3498db;
     .ball {
       position: absolute;
-      width: 10%;
+      width: 2%;
       height: 0;
-      padding-top: 10%;
-      margin-top: -5%;
+      padding-top: 2%;
+      margin-top: -1%;
       margin-left: 0;
       border-radius: 50%;
       left: 0;
       backface-visibility: hidden;
       perspective: 1000;
-      &:nth-of-type(2n+1) {
-        transform: translate3d(450%, 0, 0) rotateY(0deg);
-        animation: 3s Ball1 ease-in-out 0ms infinite alternate;
+      &.ball-DNA1, &.ball-DNA2 {
+        &:nth-of-type(2n+1) {
+          transform: translate3d(2500%, 0, 0) rotateY(0deg);
+          animation: 6000ms Ball1 ease-in-out 0ms infinite alternate;
+        }
+        &:nth-of-type(2n) {
+          transform: translate3d(2500%, 0, 0) rotateX(0deg);
+          animation: 6000ms Ball2 ease-in-out 0ms infinite alternate;
+        }
       }
-      &:nth-of-type(2n) {
-        transform: translate3d(450%, 0, 0) rotateX(0deg);
-        animation: 3s Ball2 ease-in-out 0ms infinite alternate;
-      }
+      // &.ball-DNA2 {
+      //   &:nth-of-type(2n+1) {
+      //     transform: translate3d(2500%, 0, 0) rotateY(0deg);
+      //     animation: 8s Ball3 ease-in-out 0ms infinite alternate;
+      //   }
+      //   &:nth-of-type(2n) {
+      //     transform: translate3d(2500%, 0, 0) rotateX(0deg);
+      //     animation: 8s Ball4 ease-in-out 0ms infinite alternate;
+      //   }
+      // }
     }
   }
   @keyframes Ball1 {
     0% {
-      transform: translate3d(450%, 0, 0) rotateY(0deg);
+      transform: translate3d(2500%, 0, 0) rotateY(0deg);
     }
     33% {
       transform: translate3d(0, 0, 0) rotateY(60deg);
     }
     67% {
-      transform: translate3d(900%, 0, 0) rotateY(-60deg);
+      transform: translate3d(4900%, 0, 0) rotateY(-60deg);
     }
     100% {
-      transform: translate3d(450%, 0, 0) rotateY(0deg);
+      transform: translate3d(2500%, 0, 0) rotateY(0deg);
     }
   }
   @keyframes Ball2 {
     0% {
-      transform: translate3d(450%, 0, 0) rotateX(0deg);
+      transform: translate3d(2500%, 0, 0) rotateX(0deg);
     }
     33% {
       transform: translate3d(0, 0, 0) rotateX(60deg);
     }
     67% {
-      transform: translate3d(900%, 0, 0) rotateX(-60deg);
+      transform: translate3d(4900%, 0, 0) rotateX(-60deg);
     }
     100% {
-      transform: translate3d(450%, 0, 0) rotateX(0deg);
+      transform: translate3d(2500%, 0, 0) rotateX(0deg);
+    }
+  }
+  @keyframes Ball3 {
+    0% {
+      transform: translate3d(2500%, 0, 0) rotateY(0deg);
+    }
+    33% {
+      transform: translate3d(4900%, 0, 0) rotateY(-60deg);
+    }
+    67% {
+      transform: translate3d(0, 0, 0) rotateY(60deg);
+    }
+    100% {
+      transform: translate3d(2500%, 0, 0) rotateY(0deg);
+    }
+  }
+  @keyframes Ball4 {
+    0% {
+      transform: translate3d(2500%, 0, 0) rotateX(0deg);
+    }
+    33% {
+      transform: translate3d(4900%, 0, 0) rotateX(-60deg);
+    }
+    67% {
+      transform: translate3d(0, 0, 0) rotateX(60deg);
+    }
+    100% {
+      transform: translate3d(2500%, 0, 0) rotateX(0deg);
     }
   }
 </style>
