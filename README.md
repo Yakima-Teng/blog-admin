@@ -1,6 +1,6 @@
 # vue2-webpack-boilerplate
 
-> TO DO: Loading effect => when window width is larger than window height, show vertical DNA structure instead of horizontal ones.
+> To be continued...
 
 ## Build Setup
 
