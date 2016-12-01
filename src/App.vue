@@ -13,9 +13,35 @@
 <script>
   import Ball from './components/Ball.vue'
   import Alert from './components/Alert.vue'
+  import { mapMutations } from 'vuex'
 
   export default {
     name: 'app',
+    data () {
+      return {}
+    },
+    computed: {
+      config () { return this.$store.state.config },
+      mock () { return this.$store.state.mock },
+      user () { return this.$store.state.user },
+      options () { return this.$store.state.options }
+    },
+    methods: {
+      getOpenid () {},
+      ...mapMutations([
+        'load',
+        'alert',
+        'setUser',
+        'setOrders',
+        'getOptionText'
+      ])
+    },
+    mounted () {
+      let _this = this
+      setTimeout(() => {
+        _this.load(false)
+      }, 10000)
+    },
     components: {
       Ball, Alert
     }
@@ -30,5 +56,11 @@
   }
   body {
     min-height: 100%;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0
   }
 </style>

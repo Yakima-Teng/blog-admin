@@ -1,5 +1,7 @@
 <template>
-  <div>Index</div>
+  <transition name="fade">
+    
+  </transition>
 </template>
 
 <script>

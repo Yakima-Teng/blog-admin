@@ -1,34 +1,36 @@
 <template>
-  <div v-show="isLoading" class="utils-ball">
-    <div v-show="direction === 'vertical'" class="vertical">
-      <span v-for="num in totalBalls" :data-key="num" :style="{
-        'animation-delay': (6000 / totalBalls) * num + 'ms',
-        'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
-        'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
-      }" class="ball ball-DNA1"></span>
-      <span v-for="num in totalBalls" :data-key="num" :style="{
-        'animation-delay': (6000 / totalBalls) * num - 1000 + 'ms',
-        'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
-        'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
-      }" class="ball ball-DNA1"></span>
+  <transition name="fade">
+    <div v-show="isLoading" class="utils-ball">
+      <div v-show="direction === 'vertical'" class="vertical">
+        <span v-for="num in totalBalls" :data-key="num" :style="{
+          'animation-delay': (6000 / totalBalls) * num + 'ms',
+          'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
+          'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
+        }" class="ball ball-DNA1"></span>
+        <span v-for="num in totalBalls" :data-key="num" :style="{
+          'animation-delay': (6000 / totalBalls) * num - 1000 + 'ms',
+          'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
+          'top': Math.ceil(100 / (totalBalls + 1) * num) + '%'
+        }" class="ball ball-DNA1"></span>
+      </div>
+      <div v-show="direction === 'horizontal'" class="horizontal">
+        <span v-for="num in totalBalls" :data-key="num" :style="{
+          'animation-delay': (6000 / totalBalls) * num + 'ms',
+          'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
+          'width': horizontalBallWidth + 'px',
+          'margin-left': -horizontalBallWidth / 2 + 'px',
+          'left': Math.ceil(100 / (totalBalls + 1) * num) + '%'
+        }" class="ball ball-DNA2"></span>
+        <span v-for="num in totalBalls" :data-key="num" :style="{
+          'animation-delay': (6000 / totalBalls) * num - 1000 + 'ms',
+          'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
+          'width': horizontalBallWidth + 'px',
+          'margin-left': -horizontalBallWidth / 2 + 'px',
+          'left': Math.ceil(100 / (totalBalls + 1) * num) + '%'
+        }" class="ball ball-DNA2"></span>
+      </div>
     </div>
-    <div v-show="direction === 'horizontal'" class="horizontal">
-      <span v-for="num in totalBalls" :data-key="num" :style="{
-        'animation-delay': (6000 / totalBalls) * num + 'ms',
-        'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
-        'width': horizontalBallWidth + 'px',
-        'margin-left': -horizontalBallWidth / 2 + 'px',
-        'left': Math.ceil(100 / (totalBalls + 1) * num) + '%'
-      }" class="ball ball-DNA2"></span>
-      <span v-for="num in totalBalls" :data-key="num" :style="{
-        'animation-delay': (6000 / totalBalls) * num - 1000 + 'ms',
-        'background-color': ['navy', 'skyblue', 'orange', 'brown'][num % 4],
-        'width': horizontalBallWidth + 'px',
-        'margin-left': -horizontalBallWidth / 2 + 'px',
-        'left': Math.ceil(100 / (totalBalls + 1) * num) + '%'
-      }" class="ball ball-DNA2"></span>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
