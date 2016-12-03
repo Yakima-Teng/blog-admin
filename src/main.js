@@ -5,11 +5,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
-    { path: '/ribbon', component: require('./views/Ribbon.vue') },
-    { path: '/dna', component: require('./views/DNA.vue') },
-    { path: '/collission', component: require('./views/Collission.vue') },
-    { path: '/game', component: require('./views/Game.vue') },
-    { path: '/', redirect: '/ribbon' }
+    { path: '/profile', component: require('./views/Profile.vue') },
+    { path: '/skill', component: require('./views/Skill.vue') },
+    { path: '/experience', component: require('./views/Experience.vue') },
+    { path: '*', redirect: '/profile' }
   ]
 })
 

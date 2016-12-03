@@ -1,6 +1,6 @@
 <template>
   <div class="menus">
-    <span v-for="item in menus" :class="{'active': curRouter === item.text.toLowerCase()}" class="menu">{{item.text}}</span>
+    <span @click="go(item.router)" v-for="item in menus" :class="{'active': curRouter === item.router.toLowerCase()}" class="menu">{{item.text}}</span>
   </div>
 </template>
 
@@ -11,20 +11,16 @@ export default {
     return {
       menus: [
         {
-          text: 'Ribbon',
-          url: '##'
+          text: '个人介绍',
+          router: 'profile'
         },
         {
-          text: 'DNA',
-          url: '##'
+          text: '技能&作品',
+          router: 'skill'
         },
         {
-          text: 'Collission',
-          url: '##'
-        },
-        {
-          text: 'Game',
-          url: '##'
+          text: '经历i.e.废话',
+          router: 'experience'
         }
       ]
     }
@@ -32,7 +28,12 @@ export default {
   computed: {
     curRouter () {
       let _this = this
-      return _this
+      return _this.$route.path.split('/')[1]
+    }
+  },
+  methods: {
+    go (text) {
+      this.$router.push({ path: `/${text.toLowerCase()}` })
     }
   }
 }
@@ -51,7 +52,7 @@ export default {
       height: 48px;
       line-height: 48px;
       font-size: 16px;
-      width: 25%;
+      width: 33.33%;
       background: rgba(0, 0, 0, .4);
       color: #FFFFFF;
       text-shadow: 1px 1px rgba(0, 0, 0, .4);
@@ -63,6 +64,10 @@ export default {
       user-select: none;
       cursor: pointer;
       text-transform: uppercase;
+      transition: 300ms all linear 0;
+      &.active, &:active {
+        color: yellow;
+      }
     }
   }
 </style>

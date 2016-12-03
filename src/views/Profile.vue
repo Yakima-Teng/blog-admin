@@ -1,12 +1,12 @@
 <template>
   <transition name="fade">
-    <div>dfasdf</div>
+    <div>profile</div>
   </transition>
 </template>
 
 <script>
   export default {
-    name: 'Index',
+    name: 'profile',
     data () {
       return {}
     }

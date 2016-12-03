@@ -4,19 +4,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  // states: {
-  //   isLoading: true,
-  //   // 弹出框，只有确定按钮
-  //   isAlerting: false,
-  //   alertingText: '',
-  //   alertingCallback () {}
-  // }
+  states: {
+    isLoading: true
+  }
 }
 
 const mutations = {
-  // load (state, bool) {
-  //   state.states.isLoading = bool
-  // }
+  load (state, bool) {
+    state.states.isLoading = bool
+  }
 }
 
 const actions = {
@@ -26,7 +22,7 @@ const actions = {
 }
 
 const getters = {
-  // states: state => state.states
+  states: state => state.states
 }
 
 export default new Vuex.Store({
