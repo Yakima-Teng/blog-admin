@@ -4,7 +4,7 @@
       <app-header></app-header>
       <app-menu></app-menu>
       <div id="appContentWrapper" class="app-content-wrapper">
-        <div class="global-note blue">说明：我觉得招员工跟交友大抵差不多，故详述了个人经历，如果您较忙，可忽略蓝色文字</div>
+        <div class="global-note blue">说明：我觉得招员工跟交友大抵差不多，故详述了个人经历，如果您较忙，可忽略暗淡文字</div>
         <router-view></router-view>
       </div>
       <app-footer></app-footer>
@@ -75,8 +75,8 @@
     font-size: 14px;
     color: red;
   }
-  .blue {
-    color: blue;
+  .ignore {
+    color: #ccc;
   }
   .fade-enter-active {
     transition: 300ms opacity linear 0;
