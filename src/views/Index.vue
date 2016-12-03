@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    
+    <div>dfasdf</div>
   </transition>
 </template>
 

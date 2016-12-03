@@ -1,0 +1,58 @@
+html {
+  height: 100%;
+  // 利用3D变形来开启GPU加速，以尽可能多的利用硬件能力
+  transform: translate3d(0, 0, 0);
+}
+body {
+  margin: 0;
+  height: 100%;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+input, select {
+  border: 0;
+  box-sizing: border-box;
+}
+input:focus, select:focus {
+  outline: none;
+}
+select {
+  appearance: none;
+  font-size: inherit;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+}
+th {
+  font-weight: normal;
+  text-align: left;
+}
+/* 修改chrome浏览器滚动条样式 */
+::-webkit-scrollbar-track-piece {
+  background-color:#fff;
+  -webkit-border-radius:0;
+}
+::-webkit-scrollbar {
+  width:8px;
+  height:8px;
+}
+::-webkit-scrollbar-thumb {
+  height:50px;
+  background-color:#999;
+  -webkit-border-radius:4px;
+  outline:2px solid #fff;
+  outline-offset:-2px;
+  border: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover {
+  height:50px;
+  background-color:#9f9f9f;
+  -webkit-border-radius:4px;
+}

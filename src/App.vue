@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <div class="app-wrapper">
-      <router-view></router-view>
+    <div class="app-container">
+      <app-header></app-header>
+      <app-menu></app-menu>
+      <div id="appContentWrapper" class="app-content-wrapper">
+        <router-view></router-view>
+      </div>
+      <app-footer></app-footer>
     </div>
     <div class="app-facilities">
-      <alert></alert>
       <ball></ball>
     </div>
   </div>
@@ -12,7 +16,9 @@
 
 <script>
   import Ball from './components/Ball.vue'
-  import Alert from './components/Alert.vue'
+  import AppHeader from './components/Header.vue'
+  import AppMenu from './components/Menu.vue'
+  import AppFooter from './components/Footer.vue'
   import { mapMutations } from 'vuex'
 
   export default {
@@ -40,22 +46,31 @@
       let _this = this
       setTimeout(() => {
         _this.load(false)
-      }, 10000)
+      }, 3000)
     },
     components: {
-      Ball, Alert
+      Ball, AppHeader, AppMenu, AppFooter
     }
   }
 </script>
 
 <style lang="less">
-  html {
-    height: 100%;
-    // 利用3D变形来开启GPU加速，以尽可能多的利用硬件能力
-    transform: translate3d(0, 0, 0);
-  }
+  @import './styles/reset.less';
   body {
-    min-height: 100%;
+    background: #fff url('./assets/default-pattern.png') scroll repeat top left;
+  }
+  #app {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 12px;
+    margin: 0 auto;
+    max-width: 1000px;
+    box-sizing: border-box;
+  }
+  .app-content-wrapper {
+    margin-top: 24px;
+    background-color: #fff;
+    border-radius: 2px;
   }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
