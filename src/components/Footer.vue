@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'app-footer',
   data () {
     return {
       year: new Date().getFullYear()

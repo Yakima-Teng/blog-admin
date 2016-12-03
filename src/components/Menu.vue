@@ -1,12 +1,12 @@
 <template>
   <div class="menus">
-    <span v-for="item in menus" class="menu">{{item.text}}</span>
+    <span v-for="item in menus" :class="{'active': curRouter === item.text.toLowerCase()}" class="menu">{{item.text}}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'app-menu',
   data () {
     return {
       menus: [
@@ -19,14 +19,20 @@ export default {
           url: '##'
         },
         {
-          text: 'Collision',
+          text: 'Collission',
           url: '##'
         },
         {
-          text: 'Menu 4',
+          text: 'Game',
           url: '##'
         }
       ]
+    }
+  },
+  computed: {
+    curRouter () {
+      let _this = this
+      return _this
     }
   }
 }
@@ -56,6 +62,7 @@ export default {
       box-sizing: border-box;
       user-select: none;
       cursor: pointer;
+      text-transform: uppercase;
     }
   }
 </style>

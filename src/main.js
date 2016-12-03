@@ -5,9 +5,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
-    { path: '/index', component: require('./views/Index.vue') },
-    { path: '/post', component: require('./views/Post.vue') },
-    { path: '/', redirect: '/index' }
+    { path: '/ribbon', component: require('./views/Ribbon.vue') },
+    { path: '/dna', component: require('./views/DNA.vue') },
+    { path: '/collission', component: require('./views/Collission.vue') },
+    { path: '/game', component: require('./views/Game.vue') },
+    { path: '/', redirect: '/ribbon' }
   ]
 })
 

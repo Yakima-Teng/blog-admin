@@ -9,17 +9,16 @@
       <app-footer></app-footer>
     </div>
     <div class="app-facilities">
-      <ball></ball>
+      <!-- <ball></ball> -->
     </div>
   </div>
 </template>
 
 <script>
-  import Ball from './components/Ball.vue'
   import AppHeader from './components/Header.vue'
   import AppMenu from './components/Menu.vue'
   import AppFooter from './components/Footer.vue'
-  import { mapMutations } from 'vuex'
+  // import { mapMutations } from 'vuex'
 
   export default {
     name: 'app',
@@ -33,23 +32,14 @@
       options () { return this.$store.state.options }
     },
     methods: {
-      getOpenid () {},
-      ...mapMutations([
-        'load',
-        'alert',
-        'setUser',
-        'setOrders',
-        'getOptionText'
-      ])
+      // getOpenid () {},
+      // ...mapMutations([
+      //   'load'
+      // ])
     },
-    mounted () {
-      let _this = this
-      setTimeout(() => {
-        _this.load(false)
-      }, 3000)
-    },
+    mounted () {},
     components: {
-      Ball, AppHeader, AppMenu, AppFooter
+      AppHeader, AppMenu, AppFooter
     }
   }
 </script>
