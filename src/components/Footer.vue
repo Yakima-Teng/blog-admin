@@ -1,6 +1,7 @@
 <template>
   <div class="app-footer">
-    <p class="copy-right">Copyright © {{year}} · All Rights Reserved · Yakima Teng | 滕运锋</p>
+    <p class="text">No Rights Reserved · Yakima Teng | 滕运锋</p>
+    <p class="text">UI参考自WordPress Theme: Natural Lite by <a href="http://organicthemes.com/" rel="designer" class="link">Organic Themes</a></p>
   </div>
 </template>
 
@@ -22,9 +23,16 @@ export default {
     background-color: #fff;
     border-radius: 2px;
     padding: 24px;
-    .copy-right {
+    .text {
       font-size: 16px;
       color: #000;
+    }
+    .link {
+      color: #000;
+      text-decoration: none;
+      &:active, &:hover {
+        text-decoration: underline;
+      }
     }
   }
 </style>

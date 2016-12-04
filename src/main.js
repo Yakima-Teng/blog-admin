@@ -6,9 +6,9 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     { path: '/profile', component: require('./views/Profile.vue') },
-    { path: '/skill', component: require('./views/Skill.vue') },
+    { path: '/work', component: require('./views/Work.vue') },
     { path: '/experience', component: require('./views/Experience.vue') },
-    { path: '*', redirect: '/profile' }
+    { path: '*', redirect: '/work' }
   ]
 })
 

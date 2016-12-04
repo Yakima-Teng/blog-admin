@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div class="skill">
-      <div v-for="item in skill" class="item">
+    <div class="work">
+      <div v-for="item in work" class="item-normal">
         <header class="item-header">{{item.title}}</header>
         <article class="item-details">
           <p v-for="detail in item.details" class="item-detail">{{detail}}</p>
@@ -13,18 +13,10 @@
 
 <script>
   export default {
-    name: 'skill',
+    name: 'work',
     data () {
       return {
-        skill: [
-          {
-            title: '技能',
-            details: [
-              '主用Vue，有Angular项目维护经验，webpack、gulp、less、ES6、git',
-              '喜欢代码写着写着就把之前的重构一下，不然会心情郁闷',
-              'production-ready而非research-ready（未研读过某某框架/库的源码）'
-            ]
-          },
+        work: [
           {
             title: '估损PC端后台管理系统',
             details: [

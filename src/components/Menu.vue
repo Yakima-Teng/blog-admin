@@ -11,15 +11,15 @@ export default {
     return {
       menus: [
         {
-          text: '个人介绍',
+          text: '简介&概览',
           router: 'profile'
         },
         {
-          text: '技能&作品',
-          router: 'skill'
+          text: '项目&作品',
+          router: 'work'
         },
         {
-          text: '经历i.e.废话',
+          text: '前尘&往事',
           router: 'experience'
         }
       ]

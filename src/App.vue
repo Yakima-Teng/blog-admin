@@ -76,7 +76,31 @@
     color: red;
   }
   .ignore {
-    color: #ccc;
+    // color: #ccc;
+  }
+  .item-normal {
+    position: relative;
+    padding: 18px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 0;
+      border-top: 1px solid #ccc;
+    }
+    .item-header {
+      font-size: 24px;
+      color: #504741;
+      line-height: 36px;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
+    }
+    .item-detail {
+      font-size: 12px;
+      line-height: 22px;
+    }
   }
   .fade-enter-active {
     transition: 300ms opacity linear 0;
