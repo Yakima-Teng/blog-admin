@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slide">
     <!-- <div class="profile">
       <div v-for="item in profile" :class="{ 'ignore': !item.important }" class="item">
         <span class="title">{{item.title}}</span>

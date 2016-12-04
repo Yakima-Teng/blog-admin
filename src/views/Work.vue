@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slide">
     <div class="work">
       <div v-for="item in work" class="item-normal">
         <header class="item-header">{{item.title}}</header>

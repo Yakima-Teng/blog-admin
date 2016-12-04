@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slide">
     <div class="experience">
       <div v-for="item in experience" :class="{ 'ignore' : !item.important }" class="item-normal">
         <header class="item-header">{{item.title}}</header>

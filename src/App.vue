@@ -4,7 +4,7 @@
       <app-header></app-header>
       <app-menu></app-menu>
       <div id="appContentWrapper" class="app-content-wrapper">
-        <div class="global-note blue">说明：目前不在找工作，年后会换公司，详见“简介&amp;概览”</div>
+        <div class="global-note blue">说明：目前不在找工作，年后估计会换公司</div>
         <div v-show="!isLoading" class="routers">
           <router-view></router-view>
         </div>
@@ -69,6 +69,7 @@
     margin-top: 24px;
     background-color: #fff;
     border-radius: 2px;
+    overflow: hidden;
   }
   .global-note {
     text-align: center;
@@ -112,11 +113,19 @@
       line-height: 22px;
     }
   }
-  .fade-enter-active {
-    transition: 300ms opacity linear 0;
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
   }
-  .fade-leave-active {}
   .fade-enter, .fade-leave-active {
+    opacity: 0
+  }
+  .slide-enter-active {
+    transition: all .8s ease;
+  }
+  .slide-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-enter, .slide-leave-active {
     opacity: 0;
   }
 </style>
