@@ -24,13 +24,15 @@ export default {
     border-radius: 2px;
     padding: 24px;
     .text {
-      font-size: 16px;
+      font-size: 12px;
       color: #000;
     }
     .link {
-      color: #000;
+      color: rgba(0, 0, 0, .35);
+      transition: 250ms color;
       text-decoration: none;
-      &:active, &:hover {
+      &:hover, &:active {
+        color: rgba(0, 0, 0, .6);
         text-decoration: underline;
       }
     }

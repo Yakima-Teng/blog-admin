@@ -61,11 +61,11 @@
             important: false,
             details: [
               {
-                text: '豆瓣读书：<a href="https://book.douban.com/people/cleveryun/">https://book.douban.com/people/cleveryun/</a>',
+                text: '豆瓣读书：<a href="https://book.douban.com/people/cleveryun/" class="global-link">https://book.douban.com/people/cleveryun/</a>',
                 important: false
               },
               {
-                text: 'Github：<a href="https://github.com/Yakima-Teng">https://github.com/Yakima-Teng</a>',
+                text: 'Github：<a href="https://github.com/Yakima-Teng" class="global-link">https://github.com/Yakima-Teng</a>',
                 important: false
               }
             ]
@@ -75,11 +75,11 @@
             important: false,
             details: [
               {
-                text: '邮箱：cleveryun@163.com',
+                text: '邮箱：<a href="mailto:cleveryun@163.com" class="global-link">cleveryun@163.com</a>',
                 important: false
               },
               {
-                text: '企鹅：821135564',
+                text: '企鹅：<a href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes" class="global-link">821135564</a>',
                 important: false
               }
             ]
@@ -91,15 +91,5 @@
 </script>
 
 <style lang="less" scoped>
-  .profile {
-    color: #000;
-    .item {
-      font-size: 0;
-      .title, .symbol, .detail {
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 14px;
-      }
-    }
-  }
+  .profile {}
 </style>

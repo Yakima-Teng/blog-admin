@@ -4,8 +4,10 @@
       <app-header></app-header>
       <app-menu></app-menu>
       <div id="appContentWrapper" class="app-content-wrapper">
-        <div class="global-note blue">说明：我觉得招员工跟交友大抵差不多，故详述了个人经历，如果您较忙，可忽略暗淡文字</div>
-        <router-view></router-view>
+        <div class="global-note blue">说明：目前不在找工作，年后会换公司，详见“简介&amp;概览”</div>
+        <div v-show="!isLoading" class="routers">
+          <router-view></router-view>
+        </div>
       </div>
       <app-footer></app-footer>
     </div>
@@ -28,10 +30,9 @@
       return {}
     },
     computed: {
-      config () { return this.$store.state.config },
-      mock () { return this.$store.state.mock },
-      user () { return this.$store.state.user },
-      options () { return this.$store.state.options }
+      isLoading () {
+        return this.$store.state.states.isLoading
+      }
     },
     methods: {
       ...mapMutations([
@@ -42,7 +43,7 @@
       let _this = this
       setTimeout(() => {
         _this.load(false)
-      }, 2000)
+      }, 5000)
     },
     components: {
       Ball, AppHeader, AppMenu, AppFooter
@@ -74,6 +75,15 @@
     line-height: 40px;
     font-size: 14px;
     color: red;
+  }
+  .global-link {
+    color: #99cc33;
+    text-decoration: none;
+    transition: 250ms color;
+    &:hover, &:active {
+      color: #669900;
+      text-decoration: underline;
+    }
   }
   .ignore {
     // color: #ccc;
