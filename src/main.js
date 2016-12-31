@@ -5,9 +5,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
-    { path: '/profile', component: require('./views/Profile.vue') },
-    { path: '/work', component: require('./views/Work.vue') },
-    { path: '/experience', component: require('./views/Experience.vue') },
+    { path: '/profile', component (resolve) { require(['./views/Profile.vue'], resolve) } },
+    { path: '/work', component (resolve) { require(['./views/Work.vue'], resolve) } },
+    { path: '/experience', component (resolve) { require(['./views/Experience.vue'], resolve) } },
     { path: '*', redirect: '/work' }
   ]
 })
