@@ -5,10 +5,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
-    { path: '/profile', component (resolve) { require(['./views/Profile.vue'], resolve) } },
-    { path: '/work', component (resolve) { require(['./views/Work.vue'], resolve) } },
-    { path: '/experience', component (resolve) { require(['./views/Experience.vue'], resolve) } },
-    { path: '*', redirect: '/work' }
+    { path: '/p1', component (resolve) { require(['./views/PointOne.vue'], resolve) } },
+    { path: '/p2', component (resolve) { require(['./views/PointTwo.vue'], resolve) } },
+    { path: '/p3', component (resolve) { require(['./views/PointThree.vue'], resolve) } },
+    { path: '*', redirect: '/p2' }
   ]
 })
 

@@ -11,16 +11,16 @@ export default {
     return {
       menus: [
         {
-          text: '简介&概览',
-          router: 'profile'
+          text: '速度与力量',
+          router: 'p1'
         },
         {
-          text: '项目&作品',
-          router: 'work'
+          text: '阅读与判断',
+          router: 'p2'
         },
         {
-          text: '前尘&往事',
-          router: 'experience'
+          text: '双打与配合',
+          router: 'p3'
         }
       ]
     }

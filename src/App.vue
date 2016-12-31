@@ -4,7 +4,7 @@
       <app-header></app-header>
       <app-menu></app-menu>
       <div id="appContentWrapper" class="app-content-wrapper">
-        <div class="global-note blue">说明：目前不在找工作，年后有6成概率会换公司</div>
+        <div class="global-note blue">说明：文章内容来源于互联网</div>
         <div v-show="!isLoading" class="routers">
           <router-view></router-view>
         </div>

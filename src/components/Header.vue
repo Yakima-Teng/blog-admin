@@ -14,7 +14,7 @@ export default {
       canvasWidth: '',
       canvasHeight: '',
       backgroundImage: '',
-      title: 'YAKIMA TENG | 滕运锋'
+      title: 'PLAY BADMINTON'
     }
   },
   methods: {
