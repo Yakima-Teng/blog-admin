@@ -23,6 +23,7 @@
   import AppMenu from './components/Menu.vue'
   import AppFooter from './components/Footer.vue'
   import { mapMutations } from 'vuex'
+  import $ from 'jquery'
 
   export default {
     name: 'app',
@@ -41,6 +42,13 @@
     },
     mounted () {
       let _this = this
+      // 避免出现在显示加载动画之前先出现页面背景图
+      $('body').css({
+        'background-image': `url("${require('./assets/default-pattern.png')}")`
+      })
+      // 提前加载应用所需的其他图片资源
+      /* eslint-disable no-new */
+      new window.Image().src = './static/star.jpg'
       setTimeout(() => {
         _this.load(false)
       }, 5000)
@@ -54,7 +62,8 @@
 <style lang="less">
   @import './styles/reset.less';
   body {
-    background: #fff url('./assets/default-pattern.png') scroll repeat top left;
+    // background: #fff url('./assets/default-pattern.png') scroll repeat top left;
+    background: #fff scroll repeat top left;
   }
   #app {
     display: block;
