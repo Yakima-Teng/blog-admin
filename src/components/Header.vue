@@ -15,7 +15,8 @@
         canvasWidth: '',
         canvasHeight: '',
         backgroundImage: '',
-        title: 'PLAY BADMINTON'
+        title: 'PLAY BADMINTON',
+        timer: ''
       }
     },
     methods: {
@@ -71,7 +72,7 @@
           bgImg.src = './static/star.jpg'
           bgImg.onload = () => {
             ctx.drawImage(bgImg, 0, 0)
-            window.requestAnimationFrame(drawStars)
+            _this.timer = window.requestAnimationFrame(drawStars)
           }
           ctx.drawImage(bgImg, 0, 0)
 
@@ -151,6 +152,12 @@
         // }
 
         _this.skyCanvas()
+
+        setTimeout(() => {
+          if (_this.timer) {
+            window.cancelAnimationFrame(_this.timer)
+          }
+        }, 60 * 60 * 1000)
       })
       $(window).resize(_this.skyCanvas)
     }
