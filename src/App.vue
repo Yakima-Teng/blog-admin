@@ -43,15 +43,30 @@
     mounted () {
       let _this = this
       // 避免出现在显示加载动画之前先出现页面背景图
-      $('body').css({
-        'background-image': `url("${require('./assets/default-pattern.png')}")`
-      })
       // 提前加载应用所需的其他图片资源
-      /* eslint-disable no-new */
-      new window.Image().src = './static/star.jpg'
-      setTimeout(() => {
-        _this.load(false)
-      }, 5000)
+      const bgImg = new window.Image()
+      const starImg = new window.Image()
+      let count = 0
+
+      function oneMorePicLoaded () {
+        if (++count === 2) {
+          setTimeout(() => {
+            _this.load(false)
+          }, 5000)
+        }
+      }
+
+      bgImg.src = require('./assets/default-pattern.png')
+      starImg.src = './static/star.jpg'
+
+      bgImg.onload = () => {
+        $('body').css({
+          'background-image': `url("${require('./assets/default-pattern.png')}")`
+        })
+        oneMorePicLoaded()
+      }
+
+      starImg.onload = oneMorePicLoaded
     },
     components: {
       Ball, AppHeader, AppMenu, AppFooter
