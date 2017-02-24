@@ -1,4 +1,4 @@
-# vue2-webpack-boilerplate
+# blog-admin
 
 > To be continued...
 
