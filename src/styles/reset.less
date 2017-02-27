@@ -37,23 +37,25 @@ th {
 }
 /* 修改chrome浏览器滚动条样式 */
 ::-webkit-scrollbar-track-piece {
-  background-color:#fff;
-  -webkit-border-radius:0;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  border-left: 1px solid rgba(0, 0, 0, .1);
+  border-right: 1px solid rgba(0, 0, 0, .1);
 }
 ::-webkit-scrollbar {
-  width:8px;
-  height:8px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-thumb {
   height:50px;
-  background-color:#999;
+  background-color: #00acc1;
   -webkit-border-radius:4px;
-  outline:2px solid #fff;
-  outline-offset:-2px;
-  border: 2px solid #fff;
-}
-::-webkit-scrollbar-thumb:hover {
-  height:50px;
-  background-color:#9f9f9f;
-  -webkit-border-radius:4px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  transition: 300ms all linear 0ms;
+  &:hover {
+    height:50px;
+    background-color: darken(#00acc1, 10%);
+    -webkit-border-radius:4px;
+  }
 }

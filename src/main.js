@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import store from './scripts/store.js'
 import VueRouter from 'vue-router'
+
 Vue.use(VueRouter)
+
 const router = new VueRouter({
   routes: [
     { path: '/p1', component (resolve) { require(['./views/PointOne.vue'], resolve) } },
@@ -19,7 +21,7 @@ new Vue({
   el: '#app',
   template: '<App/>',
   components: { App }
-});
+})
 
 /**
  * *********************************************************************************
@@ -31,19 +33,19 @@ new Vue({
  * 比如自定义requestAnimationFrame函数时多加了一个element参数
  *                                                                                  *
  ***********************************************************************************/
-(function () {
-  var lastTime = 0
-  var vendors = ['webkit', 'moz']
-  for (var i = 0, length = vendors.length; i < length && !window.requestAnimationFrame; i++) {
+void (function () {
+  let lastTime = 0
+  let vendors = ['webkit', 'moz']
+  for (let i = 0, length = vendors.length; i < length && !window.requestAnimationFrame; i++) {
     window.requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame']
     // webkit中cancel方法的名称跟其他的不一样
     window.cancelAnimationFrame = window[vendors[i] + 'CancelAnimationFrame'] || window[vendors[i] + 'CancelRequestAnimationFrame']
   }
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = function (cb) {
-      var curTime = +new Date()
-      var timeToCall = Math.max(0, 16.7 - (curTime - lastTime))
-      var id = window.setTimeout(function () {
+      let curTime = +new Date()
+      let timeToCall = Math.max(0, 16.7 - (curTime - lastTime))
+      let id = window.setTimeout(function () {
         cb()
       }, timeToCall)
       lastTime = curTime + timeToCall

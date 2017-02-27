@@ -79,7 +79,7 @@
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" rel="stylesheet/less" scoped>
   .utils-ball {
     position: fixed;
     top: 0;
@@ -88,7 +88,6 @@
     height: 100%;
     overflow: hidden;
     background-color: rgba(240, 255, 255, 1);
-    // background-color: #3498db;
     .vertical {
       .ball {
         position: absolute;
@@ -100,7 +99,7 @@
         border-radius: 50%;
         left: 0;
         backface-visibility: hidden;
-        perspective: 1000;
+        perspective: 1000px;
         &.ball-DNA1, &.ball-DNA2 {
           &:nth-of-type(2n+1) {
             transform: translate3d(2500%, 0, 0) rotateY(0deg);
