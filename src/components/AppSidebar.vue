@@ -7,14 +7,19 @@
     </header>
     <article class="article">
       <ul class="wrapper">
-        <li v-for="menu in menus" class="menu">
-          <header class="menu-title">
+        <li v-for="(menu, idx) in menus.details" class="menu">
+          <header @click="toggleTopMenu(menu, idx)" :class="{'active': menu.alias === curTopRoute}" class="menu-title">
             <i class="fa fa-sitemap fa-fw"></i>
             <span class="text">{{menu.text}}</span>
             <i v-show="menu.details && menu.details.length > 0" class="fa fa-angle-right"></i>
           </header>
-          <ul v-show="menu.details && menu.details.length > 0" class="menu-details">
-            <li v-for="subMenu in menu.details" class="sub-menu">
+          <ul v-show="menus.unfoldedIndex === idx && menu.details && menu.details.length > 0" class="menu-details">
+            <li
+              v-for="(subMenu, index) in menu.details"
+              v-show="subMenu.show"
+              @click="toggleSubMenu(menu, subMenu, idx, index)"
+              :class="{'active': menu.alias === curTopRoute && subMenu.alias === curSubRoute}"
+              class="sub-menu">
               <span class="text">{{subMenu.text}}</span>
             </li>
           </ul>
@@ -25,23 +30,32 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
   export default {
     name: 'AppSidebar',
     data () {
       return {}
     },
     computed: {
-      curRouter () {
-        let _this = this
-        return _this.$route.path.split('/')[1]
-      },
+      curTopRoute () { return this.$route.path.split('/')[1] },
+      curSubRoute () { return this.$route.path.split('/')[2] },
       ...mapGetters(['menus'])
     },
     methods: {
-      go (text) {
-        this.$router.push({ path: `/${text.toLowerCase()}` })
-      }
+      toggleTopMenu (menu, idx) {
+        let _this = this
+        if (_this.menus.unfoldedIndex === idx) {
+          _this.setMenus({ unfoldedIndex: -1 })
+        } else {
+          _this.setMenus({ unfoldedIndex: idx })
+          _this.$router.push({ path: `/${menu.alias}` })
+        }
+      },
+      toggleSubMenu (menu, subMenu, menuIdx, subMenuIdx) {
+        let _this = this
+        _this.$router.push({ path: `/${menu.alias}/${subMenu.alias}` })
+      },
+      ...mapMutations(['setMenus'])
     }
   }
 </script>
@@ -53,6 +67,7 @@
     height: 100%;
     background-color: rgb(0, 188, 212);
     color: #fff;
+    user-select: none;
     .header {
       position: relative;
       display: flex;
@@ -67,11 +82,13 @@
       .borderBottomAfter();
       .ico-logo {
         font-size: 20px;
+        cursor: pointer;
       }
       .text {
         flex: 1;
         padding: 0 10px;
         line-height: 1;
+        cursor: pointer;
       }
       .ico-toggle {
         font-size: 20px;
@@ -100,7 +117,7 @@
         min-height: 40px;
         font-size: 14px;
         transition: 300ms all linear 0ms;
-        &:hover, &:active {
+        &:hover, &:active, &.active {
           background-color: rgb(0, 172, 193);
           cursor: pointer;
         }
@@ -120,7 +137,7 @@
           min-height: 40px;
           font-size: 12px;
           .borderTopBefore();
-          &:hover, &:active {
+          &:hover, &:active, &.active {
             background-color: rgb(0, 172, 193);
             cursor: pointer;
           }

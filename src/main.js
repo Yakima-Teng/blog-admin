@@ -7,10 +7,80 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
-    { path: '/p1', component (resolve) { require(['./views/PointOne.vue'], resolve) } },
-    { path: '/p2', component (resolve) { require(['./views/PointTwo.vue'], resolve) } },
-    { path: '/p3', component (resolve) { require(['./views/PointThree.vue'], resolve) } },
-    { path: '*', redirect: '/p2' }
+    {
+      path: '/dashboard',
+      component (resolve) { require(['./views/Dashboard.vue'], resolve) },
+      children: [
+        {
+          path: 'general',
+          component (resolve) { require(['./views/DashboardGeneral.vue'], resolve) }
+        }
+      ]
+    },
+    {
+      path: '/posts',
+      component (resolve) { require(['./views/Posts.vue'], resolve) },
+      children: [
+        {
+          path: 'posts',
+          component (resolve) { require(['./views/PostsPosts.vue'], resolve) }
+        },
+        {
+          path: 'add',
+          component (resolve) { require(['./views/PostsAdd.vue'], resolve) }
+        },
+        {
+          path: 'edit',
+          component (resolve) { require(['./views/PostsEdit.vue'], resolve) }
+        }
+      ]
+    },
+    {
+      path: '/pages',
+      component (resolve) { require(['./views/Pages.vue'], resolve) },
+      children: [
+        {
+          path: 'pages',
+          component (resolve) { require(['./views/PagesPages.vue'], resolve) }
+        },
+        {
+          path: 'add',
+          component (resolve) { require(['./views/PagesAdd.vue'], resolve) }
+        },
+        {
+          path: 'edit',
+          component (resolve) { require(['./views/PagesEdit.vue'], resolve) }
+        }
+      ]
+    },
+    {
+      path: '/comments',
+      component (resolve) { require(['./views/Comments.vue'], resolve) },
+      children: [
+        {
+          path: 'comments',
+          component (resolve) { require(['./views/CommentsComments.vue'], resolve) }
+        },
+        {
+          path: 'edit',
+          component (resolve) { require(['./views/CommentsEdit.vue'], resolve) }
+        }
+      ]
+    },
+    {
+      path: '/settings',
+      component (resolve) { require(['./views/Settings.vue'], resolve) },
+      children: [
+        {
+          path: 'profile',
+          component (resolve) { require(['./views/SettingsProfile.vue'], resolve) }
+        }
+      ]
+    },
+    {
+      path: '*',
+      redirect: '/dashboard'
+    }
   ]
 })
 

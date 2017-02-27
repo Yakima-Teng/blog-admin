@@ -84,6 +84,8 @@
       box-sizing: border-box;
       .app-content-inner {
         height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
         overflow: auto;
         /* 修改chrome浏览器滚动条样式 */
         &::-webkit-scrollbar-track-piece {
