@@ -21,6 +21,8 @@
       </div>
       <div class="app-facilities">
         <ball></ball>
+        <alert></alert>
+        <wait></wait>
       </div>
     </div>
   </div>
@@ -31,6 +33,8 @@
   import AppSidebar from './components/AppSidebar.vue'
   import AppNavigation from './components/AppNavigation.vue'
   import AppFooter from './components/AppFooter.vue'
+  import Alert from './components/Alert.vue'
+  import Wait from './components/Wait.vue'
   import { mapActions } from 'vuex'
 
   export default {
@@ -47,7 +51,7 @@
       _this.load(false)
     },
     components: {
-      Ball, AppSidebar, AppNavigation, AppFooter
+      Ball, AppSidebar, AppNavigation, AppFooter, Alert, Wait
     }
   }
 </script>
