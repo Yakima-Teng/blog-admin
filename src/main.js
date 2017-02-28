@@ -32,7 +32,7 @@ const router = new VueRouter({
           component (resolve) { require(['./views/PostsAdd.vue'], resolve) }
         },
         {
-          path: 'edit:id',
+          path: 'edit/:id',
           component (resolve) { require(['./views/PostsEdit.vue'], resolve) }
         }
       ]

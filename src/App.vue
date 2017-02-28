@@ -59,6 +59,7 @@
 <style lang="less" rel="stylesheet/less">
   @import './styles/reset.less';
   @import './styles/font-awesome.css';
+  @import './styles/utils-table.less';
   html, body, #app, .app-container, .app-wrapper, .app-sidebar, .app-main {
     height: 100%;
   }

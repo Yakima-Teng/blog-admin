@@ -113,7 +113,6 @@
     background-color: #fff;
     height: 80px;
     padding: 0 17px;
-    font-size: 0;
   }
   .container-left {
     display: flex;

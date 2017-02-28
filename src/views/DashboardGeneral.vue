@@ -29,10 +29,6 @@
     computed: {
       ...mapGetters(['config', 'mock'])
     },
-    beforeRouteEnter (to, from, next) {
-      next()
-    },
-    created () { this.updateStatistic() },
     methods: {
       go (route) {
         this.$router.push(route)
@@ -115,7 +111,11 @@
         })
       },
       ...mapActions(['wait'])
-    }
+    },
+    beforeRouteEnter (to, from, next) {
+      next()
+    },
+    created () { this.updateStatistic() }
   }
 </script>
 
