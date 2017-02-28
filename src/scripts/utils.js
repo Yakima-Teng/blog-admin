@@ -255,6 +255,47 @@ const validatePhone = phone => /^1[3-8]\d{9}$/.test(phone)
 
 const validateNumber = num => /(^[1-9][0-9]*$)|(^[1-9][0-9]*\.[0-9]+$)|(^0$)|(^0\.[0-9]+$)/.test(num)
 
+/**
+ * 根据总记录数、每页显示的记录数、当前页码
+ * 返回总页数和导航中的各个页码
+ * 目前设定为最多显示连续5个页数，若要修改显示页数，直接修改下面的q (short for quantity)即可
+ * @param numberOfTotalRecords
+ * @param numberOfRecordsPerPage
+ * @param curPageNum
+ */
+const getPageNavigationStatistic = (numberOfTotalRecords, numberOfRecordsPerPage, curPageNum) => {
+  const numberOfPages = Math.ceil(numberOfTotalRecords / numberOfRecordsPerPage)
+
+  let pages = []
+  const q = 5
+  if (numberOfPages <= q) {
+    for (let i = 0; i < numberOfPages; i++) {
+      pages.push(i + 1)
+    }
+  } else {
+    if (curPageNum <= Math.ceil(q / 2)) {
+      for (let i = 0; i < q; i++) {
+        pages.push(i + 1)
+      }
+    } else {
+      if (numberOfPages <= curPageNum + Math.ceil(q / 2 - 1)) {
+        for (let i = 0; i < q; i++) {
+          pages.push(numberOfPages - (q - 1) + i)
+        }
+      } else {
+        for (let i = 0; i < q; i++) {
+          pages.push(curPageNum - Math.ceil(q / 2 - 1) + i)
+        }
+      }
+    }
+  }
+
+  return {
+    numberOfPages,
+    pages
+  }
+}
+
 export {
   typeOf,
   merge,
@@ -275,5 +316,6 @@ export {
   updateNumber,
   calculateTextWidth,
   validatePhone,
-  validateNumber
+  validateNumber,
+  getPageNavigationStatistic
 }

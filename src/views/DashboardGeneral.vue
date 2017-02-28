@@ -2,9 +2,9 @@
   <transition name="slide">
     <div class="root">
       <ul class="items">
-        <li class="item">文章总数：{{statistic.posts}}</li>
-        <li class="item">页面总数：{{statistic.pages}}</li>
-        <li class="item">评论总数：{{statistic.comments}}</li>
+        <li @click="go('/posts/posts')" class="item">文章总数：{{statistic.posts}}</li>
+        <li @click="go('/pages/pages')" class="item">页面总数：{{statistic.pages}}</li>
+        <li @click="go('/comments/comments')" class="item">评论总数：{{statistic.comments}}</li>
       </ul>
     </div>
   </transition>
@@ -34,6 +34,9 @@
     },
     created () { this.updateStatistic() },
     methods: {
+      go (route) {
+        this.$router.push(route)
+      },
       updateStatistic () {
         let _this = this
         _this.wait(true)
@@ -130,6 +133,8 @@
         align-items: center;
         justify-content: space-around;
         color: #fff;
+        user-select: none;
+        cursor: pointer;
         &:nth-of-type(1) {
           background-color: rgb(239, 83, 80);
         }
