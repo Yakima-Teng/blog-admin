@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'RouterView'
+    name: 'Comments'
   }
-</script>s
+</script>

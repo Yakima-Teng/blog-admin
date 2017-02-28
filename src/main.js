@@ -11,6 +11,7 @@ const router = new VueRouter({
       path: '/dashboard',
       component (resolve) { require(['./views/Dashboard.vue'], resolve) },
       children: [
+        // { path: '', redirect: 'general' },
         {
           path: 'general',
           component (resolve) { require(['./views/DashboardGeneral.vue'], resolve) }
@@ -21,6 +22,7 @@ const router = new VueRouter({
       path: '/posts',
       component (resolve) { require(['./views/Posts.vue'], resolve) },
       children: [
+        // { path: '', redirect: 'posts' },
         {
           path: 'posts',
           component (resolve) { require(['./views/PostsPosts.vue'], resolve) }
@@ -30,7 +32,7 @@ const router = new VueRouter({
           component (resolve) { require(['./views/PostsAdd.vue'], resolve) }
         },
         {
-          path: 'edit',
+          path: 'edit:id',
           component (resolve) { require(['./views/PostsEdit.vue'], resolve) }
         }
       ]
@@ -39,6 +41,7 @@ const router = new VueRouter({
       path: '/pages',
       component (resolve) { require(['./views/Pages.vue'], resolve) },
       children: [
+        // { path: '', redirect: 'pages' },
         {
           path: 'pages',
           component (resolve) { require(['./views/PagesPages.vue'], resolve) }
@@ -48,7 +51,7 @@ const router = new VueRouter({
           component (resolve) { require(['./views/PagesAdd.vue'], resolve) }
         },
         {
-          path: 'edit',
+          path: 'edit:id',
           component (resolve) { require(['./views/PagesEdit.vue'], resolve) }
         }
       ]
@@ -57,12 +60,13 @@ const router = new VueRouter({
       path: '/comments',
       component (resolve) { require(['./views/Comments.vue'], resolve) },
       children: [
+        // { path: '', redirect: 'comments' },
         {
           path: 'comments',
           component (resolve) { require(['./views/CommentsComments.vue'], resolve) }
         },
         {
-          path: 'edit',
+          path: 'edit:id',
           component (resolve) { require(['./views/CommentsEdit.vue'], resolve) }
         }
       ]
@@ -71,6 +75,7 @@ const router = new VueRouter({
       path: '/settings',
       component (resolve) { require(['./views/Settings.vue'], resolve) },
       children: [
+        // { path: '', redirect: 'profile' },
         {
           path: 'profile',
           component (resolve) { require(['./views/SettingsProfile.vue'], resolve) }
@@ -79,7 +84,7 @@ const router = new VueRouter({
     },
     {
       path: '*',
-      redirect: '/dashboard'
+      redirect: '/dashboard/general'
     }
   ]
 })

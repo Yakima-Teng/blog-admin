@@ -48,7 +48,6 @@
           _this.setMenus({ unfoldedIndex: -1 })
         } else {
           _this.setMenus({ unfoldedIndex: idx })
-          _this.$router.push({ path: `/${menu.alias}` })
         }
       },
       toggleSubMenu (menu, subMenu, menuIdx, subMenuIdx) {

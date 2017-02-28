@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'RouterView'
+    name: 'Posts'
   }
 </script>

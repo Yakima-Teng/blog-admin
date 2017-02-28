@@ -1,18 +1,39 @@
 <template>
   <div class="navigation">
-    <span class="text">navigation1</span>
+    <span class="text">{{curTopRouteText}}</span>
     <i class="fa fa-angle-double-right"></i>
-    <span class="text">navigation2</span>
+    <span class="text">{{curSubRouteText}}</span>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
-    name: 'app-footer',
+    name: 'AppNavigation',
     data () {
-      return {
-        year: new Date().getFullYear()
-      }
+      return {}
+    },
+    computed: {
+      curTopRouteText () {
+        let _this = this
+        const topAlias = _this.$route.path.split('/')[1]
+        if (topAlias) {
+          return _this.menus.details.filter(item => item.alias === topAlias)[0].text
+        }
+        return ''
+      },
+      curSubRouteText () {
+        let _this = this
+        const topAlias = _this.$route.path.split('/')[1]
+        const subAlias = _this.$route.path.split('/')[2]
+        if (subAlias) {
+          return _this.menus.details.filter(item => {
+            return item.alias === topAlias
+          })[0].details.filter(item => item.alias === subAlias)[0].text
+        }
+        return ''
+      },
+      ...mapGetters(['menus'])
     }
   }
 </script>

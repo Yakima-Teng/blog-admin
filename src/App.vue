@@ -16,6 +16,9 @@
           </div>
         </div>
       </div>
+      <div class="app-footer">
+        <app-footer></app-footer>
+      </div>
       <div class="app-facilities">
         <ball></ball>
       </div>
@@ -31,7 +34,7 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'app',
+    name: 'App',
     data () {
       return {}
     },
@@ -64,6 +67,12 @@
   .app-wrapper {
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    margin-bottom: -30px;
+  }
+  .app-footer {
+    height: 30px;
   }
   .app-sidebar {
     width: 260px;

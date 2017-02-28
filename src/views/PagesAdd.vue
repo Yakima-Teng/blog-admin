@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'PostsEdit',
+    name: 'PostsAdd',
     data () {
       return {}
     }
