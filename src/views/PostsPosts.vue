@@ -337,7 +337,7 @@
           border: 1px solid #ddd;
           box-shadow: inset 0 1px 2px rgba(0, 0, 0, .07);
           color: #32373c;
-          transition: 50ms border-bolor ease-in-out 0ms;
+          transition: 50ms border-color ease-in-out 0ms;
           box-sizing: border-box;
           padding: 0 6px;
           width: 160px;
@@ -360,6 +360,60 @@
           user-select: none;
           cursor: pointer;
           border-radius: @borderRadius;
+          white-space: nowrap;
+          box-sizing: border-box;
+          &:hover {
+            background-color: #fafafa;
+            border-color: #999;
+            color: #23282d;
+          }
+          &:active {
+            background-color: #eee;
+            border-color: #999;
+            box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, .5);
+            transform: translateY(1px);
+          }
+        }
+      }
+    }
+    .byline {
+      height: 40px;
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &:nth-of-type(n+2) {
+          margin-left: 8px;
+        }
+        .options {
+          margin-right: 4px;
+          height: 24px;
+          background: #fff url('../assets/chevron_down_25x16.png') scroll no-repeat right 3px center;
+          background-size: 12px auto;
+          border: 1px solid #ddd;
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, .07);
+          color: #32373c;
+          transition: 50ms border-color ease-in-out 0ms;
+          box-sizing: border-box;
+          padding: 0 18px 0 6px;
+          width: auto;
+          font-size: 13px;
+          &:focus {
+            border-color: #5b9dd9;
+            box-shadow: 0 0 2px rgba(30, 140, 190, .8);
+          }
+        }
+        .btn {
+          color: #555;
+          border: 1px solid #ccc;
+          background-color: #f7f7f7;
+          box-shadow: 0 1px 0 #ccc;
+          font-size: 12px;
+          height: 24px;
+          line-height: 22px;
+          text-align: center;
+          user-select: none;
+          cursor: pointer;
           white-space: nowrap;
           box-sizing: border-box;
           &:hover {

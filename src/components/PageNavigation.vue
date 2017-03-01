@@ -110,9 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
-    height: 80px;
-    padding: 0 17px;
+    height: 100%;
   }
   .container-left {
     display: flex;
