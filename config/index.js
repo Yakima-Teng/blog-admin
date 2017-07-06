@@ -2,7 +2,7 @@
 var path = require('path')
 
 var domain = {
-  server: 'http://www.orzzone.com:18080'
+  server: 'http://www.yxeye.com'
 }
 
 var mode = require('../src/scripts/mode.js').mode
