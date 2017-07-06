@@ -1,4 +1,3 @@
-<!--suppress ALL -->
 <template>
   <transition name="slide">
     <div class="root">
@@ -6,19 +5,22 @@
         <section class="container container-left">
           <section class="item">
             <span class="title">全部</span>
-            <span class="num">（{{statistic.all}}）</span>
+            <span class="num">({{statistic.all}})</span>
           </section>
+          <div class="divider"></div>
           <section class="item">
             <span class="title">已发布</span>
-            <span class="num">（{{statistic.published}}）</span>
+            <span class="num">({{statistic.published}})</span>
           </section>
+          <div class="divider"></div>
           <section class="item">
             <span class="title">草稿</span>
-            <span class="num">（{{statistic.draft}}）</span>
+            <span class="num">({{statistic.draft}})</span>
           </section>
+          <div class="divider"></div>
           <section class="item">
             <span class="title">秘密</span>
-            <span class="num">（{{statistic.secret}}）</span>
+            <span class="num">({{statistic.secret}})</span>
           </section>
         </section>
         <section class="container container-right">
@@ -163,22 +165,22 @@
         results: {
           allChecked: false,
           details: [
-//            {
-//              checked: false,
-//              post_id: '',
-//              post_title: '',
-//              post_slug: '',
-//              author_name: '',
-//              author_id: '',
-//              cat_name: '',
-//              cat_id: '',
-//              tags: '',
-//              comment_count: '',
-//              post_date: '',
-//              post_modified: '',
-//              post_status: '',
-//              comment_status: ''
-//            }
+           // {
+           //   checked: false,
+           //   post_id: '',
+           //   post_title: '',
+           //   post_slug: '',
+           //   author_name: '',
+           //   author_id: '',
+           //   cat_name: '',
+           //   cat_id: '',
+           //   tags: '',
+           //   comment_count: '',
+           //   post_date: '',
+           //   post_modified: '',
+           //   post_status: '',
+           //   comment_status: ''
+           // }
           ]
         },
         statistic: {
@@ -287,19 +289,20 @@
         justify-content: flex-start;
         font-size: 12px;
         user-select: none;
+        .divider {
+          width: 1px;
+          height: 12px;
+          background-color: #555d66;
+          margin: 0 6px;
+        }
         .item {
-          &:nth-of-type(n+2) {
-            &:before {
-              content: '|';
-              margin: 0 8px;
-            }
-          }
           &:hover {
+            text-decoration: underline;
             .title {
-
+              color: darken(#0073aa, 10%);
             }
             .num {
-
+              color: darken(#555d66, 10%);
             }
           }
         }
@@ -307,24 +310,11 @@
           color: #0073aa;
           cursor: pointer;
           transition: 150ms all linear 0ms;
-          &:hover {
-            color: darken(#0073aa, 10%);
-          }
-          &:hover + .num {
-            color: darken(#555d66, 10%);
-          }
         }
         .num {
           color: #555d66;
           cursor: pointer;
           transition: 150ms all linear 0ms;
-          &:hover {
-            color: darken(#555d66, 10%);
-          }
-          /* todo: 失效了 */
-          &:hover ~ .title {
-            color: darken(#0073aa, 10%);
-          }
         }
       }
       .container-right {
@@ -355,7 +345,7 @@
           box-shadow: 0 1px 0 #ccc;
           font-size: 13px;
           height: 28px;
-          line-height: 26px;
+          line-height: 21px;
           text-align: center;
           user-select: none;
           cursor: pointer;
