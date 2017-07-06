@@ -46,9 +46,12 @@
     methods: {
       ...mapActions(['load'])
     },
-    mounted () {
+    created () {
       let _this = this
       _this.load(true)
+      setTimeout(() => {
+        _this.load(false)
+      }, 3000)
     },
     components: {
       Ball, AppSidebar, AppNavigation, AppFooter, Alert, Wait

@@ -135,10 +135,29 @@
           justify-content: flex-start;
           min-height: 40px;
           font-size: 12px;
+          transition: 300ms all linear 0ms;
           .borderTopBefore();
           &:hover, &:active, &.active {
             background-color: rgb(0, 172, 193);
             cursor: pointer;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            bottom: 50%;
+            background-color: #fff;
+            width: 3px;
+            left: -1px;
+            transition-property: top, bottom;
+            transition-duration: 300ms;
+            transition-timing-function: ease-out;
+          }
+          &:hover, &:active {
+            &:after {
+              top: 0;
+              bottom: 0;
+            }
           }
           .text {
             flex: 1;
