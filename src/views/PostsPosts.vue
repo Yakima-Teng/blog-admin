@@ -345,7 +345,8 @@
           box-shadow: 0 1px 0 #ccc;
           font-size: 13px;
           height: 28px;
-          line-height: 21px;
+          line-height: 22px;
+          padding: 2px 6px;
           text-align: center;
           user-select: none;
           cursor: pointer;
@@ -400,7 +401,8 @@
           box-shadow: 0 1px 0 #ccc;
           font-size: 12px;
           height: 24px;
-          line-height: 22px;
+          line-height: 18px;
+          padding: 2px 6px;
           text-align: center;
           user-select: none;
           cursor: pointer;

@@ -1,9 +1,10 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="{'slim': !menus.show}">
     <header class="header">
-      <i class="fa fa-home ico-logo"></i>
+      <i @click="$router.push('/dashboard/general')" class="fa fa-home ico-logo"></i>
       <span class="text">Admin Platform</span>
-      <i class="fa fa-angle-left ico-toggle"></i>
+      <i @click="hideMenus" v-show="menus.show" class="fa fa-angle-left ico-toggle"></i>
+      <i @click="showMenus" v-show="!menus.show" class="fa fa-angle-right ico-toggle"></i>
     </header>
     <article class="article">
       <ul class="wrapper">
@@ -33,15 +34,14 @@
   import { mapGetters, mapMutations } from 'vuex'
   export default {
     name: 'AppSidebar',
-    data () {
-      return {}
-    },
     computed: {
       curTopRoute () { return this.$route.path.split('/')[1] },
       curSubRoute () { return this.$route.path.split('/')[2] },
       ...mapGetters(['menus'])
     },
     methods: {
+      showMenus () { this.setMenus({ show: true }) },
+      hideMenus () { this.setMenus({ show: false }) },
       toggleTopMenu (menu, idx) {
         let _this = this
         if (_this.menus.unfoldedIndex === idx) {
@@ -67,6 +67,24 @@
     background-color: rgb(0, 188, 212);
     color: #fff;
     user-select: none;
+    &.slim {
+      .header {
+        padding: 0;
+        font-size: 0;
+        justify-content: center;
+        .ico-logo {
+          font-size: 0;
+        }
+        .text {
+          flex: initial;
+          padding: 0;
+        }
+        .ico-toggle {}
+      }
+      .menu {
+        display: none;
+      }
+    }
     .header {
       position: relative;
       display: flex;

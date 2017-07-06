@@ -25,6 +25,7 @@ const state = {
     logined: false
   },
   menus: {
+    show: true,
     unfoldedIndex: 0,
     details: [
       {

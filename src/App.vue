@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app-container">
       <div class="app-wrapper">
-        <div class="app-sidebar">
+        <div class="app-sidebar" :class="{'slim': !isShowingMenu}">
           <app-sidebar></app-sidebar>
         </div>
         <div class="app-main">
@@ -42,7 +42,9 @@
     data () {
       return {}
     },
-    computed: {},
+    computed: {
+      isShowingMenu () { return this.$store.state.menus.show }
+    },
     methods: {
       ...mapActions(['load'])
     },
@@ -87,6 +89,11 @@
     min-width: 260px;
     max-width: 260px;
     height: 100%;
+    &.slim {
+      width: 20px;
+      min-width: auto;
+      max-width: none;
+    }
   }
   .app-main {
     flex: 1;
