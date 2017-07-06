@@ -48,7 +48,7 @@
     },
     mounted () {
       let _this = this
-      _this.load(false)
+      _this.load(true)
     },
     components: {
       Ball, AppSidebar, AppNavigation, AppFooter, Alert, Wait

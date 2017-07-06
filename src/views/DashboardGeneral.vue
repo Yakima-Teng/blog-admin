@@ -35,7 +35,7 @@
       },
       updateStatistic () {
         let _this = this
-        _this.wait(true)
+        _this.load(true)
         _this.getPosts(checkFinishedAjax)
         _this.getPages(checkFinishedAjax)
         _this.getComments(checkFinishedAjax)
@@ -43,7 +43,7 @@
         function checkFinishedAjax () {
           _this.finishedAjax++
           if (_this.finishedAjax === 3) {
-            _this.wait(false)
+            _this.load(false)
           }
         }
       },
@@ -110,12 +110,14 @@
           cb && cb()
         })
       },
-      ...mapActions(['wait'])
+      ...mapActions(['load'])
     },
     beforeRouteEnter (to, from, next) {
       next()
     },
-    created () { this.updateStatistic() }
+    created () {
+      this.updateStatistic()
+    }
   }
 </script>
 
