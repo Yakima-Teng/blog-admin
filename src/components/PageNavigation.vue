@@ -9,7 +9,7 @@
       <span class="text">条记录</span>
       <i v-show="currentPage > 1" @click="goPage(1)" class="fa fa-angle-double-left btn btn-first"></i>
       <i v-show="currentPage > 1" @click="goPage(currentPage > 1 ? currentPage - 1 : 1)" class="fa fa-angle-left btn btn-prev"></i>
-      <span v-for="page in statistic.pages" @click="goPage(page)" :class="{'active': page === currentPage}" class="btn btn-page">{{page}}</span>
+      <span v-for="(page, index) in statistic.pages" @click="goPage(page)" :key="index" :class="{'active': page === currentPage}" class="btn btn-page">{{page}}</span>
       <i v-show="currentPage < statistic.numberOfPages" @click="goPage(currentPage < statistic.numberOfPages ? currentPage + 1 : statistic.numberOfPages)" class="fa fa-angle-right btn btn-next"></i>
       <i v-show="currentPage < statistic.numberOfPages" @click="goPage(statistic.numberOfPages)" class="fa fa-angle-double-right btn btn-last"></i>
       <span class="page-number page-number-current">{{currentPage}}</span>
@@ -18,7 +18,7 @@
       <span class="text">页，到第</span>
       <label>
         <select v-model="planedPage" class="btn btn-select-page">
-          <option v-for="page in pageOptions" :value="page">{{page}}</option>
+          <option v-for="(page, index) in pageOptions" :key="index" :value="page">{{page}}</option>
         </select>
       </label>
       <span class="text">页</span>

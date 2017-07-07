@@ -25,7 +25,7 @@
         </section>
         <section class="container container-right">
           <input v-model="search.keyword" type="text" class="field-text">
-          <button class="btn btn-search">搜索文章</button>
+          <button @click="searchPosts(search.keyword)" class="btn btn-search">搜索文章</button>
         </section>
       </header>
       <article class="results-wrapper">
@@ -134,7 +134,7 @@
                 <option value="">批量操作</option>
                 <option v-for="item in options.operations" :value="item.value">{{item.text}}</option>
               </select>
-              <button class="btn btn-apply">应用</button>
+              <button @click="batchOperate" class="btn btn-apply">应用</button>
             </section>
           </page-navigation>
         </aside>
@@ -207,6 +207,14 @@
       ...mapGetters(['config', 'mock'])
     },
     methods: {
+      searchPosts () {
+        const _this = this
+        _this.alert({ text: '该功能暂不可用' })
+      },
+      batchOperate () {
+        const _this = this
+        _this.alert({ text: '该功能暂不可用' })
+      },
       edit (postId) {
         this.$router.push(`/posts/edit/${postId}`)
       },

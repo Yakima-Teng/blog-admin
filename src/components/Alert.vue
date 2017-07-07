@@ -49,33 +49,33 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 5rem;
+      width: 5 * 40px;
       background-color: #eee;
-      border-radius: .1rem;
+      border-radius: .1 * 40px;
       .header {
-        font-size: .4rem;
+        font-size: 0.4 * 40px;
         text-align: center;
-        line-height: .7rem;
+        line-height: .7 * 40px;
       }
       .article {
-        font-size: .26rem;
-        line-height: .4rem;
-        padding: .1rem .2rem .4rem .2rem;
+        font-size: .32 * 40px;
+        line-height: .4 * 40px;
+        padding: .1 * 40px .2 * 40px .4 * 40px .2 * 40px;
       }
       .footer {
         font-size: 0;
-        letter-spacing: .1rem;
+        letter-spacing: .1 * 40px;
         text-align: right;
         line-height: 1;
-        padding: .3rem .2rem .2rem;
+        padding: .3 * 40px .2 * 40px .2 * 40px;
         .btn {
           display: inline-block;
           vertical-align: middle;
-          font-size: .3rem;
-          height: .5rem;
-          line-height: .5rem;
+          font-size: .3 * 40px;
+          height: .5 * 40px;
+          line-height: .5 * 40px;
           width: 5em;
-          border-radius: .1rem;
+          border-radius: .1 * 40px;
           text-align: center;
           color: #fff;
           &.btn-ok {
@@ -86,7 +86,7 @@
           }
           &.btn-cancel {
             background-color: brown;
-            margin-left: .2rem;
+            margin-left: .2 * 40px;
             &:active {
               background-color: darken(brown, 10%);
             }
