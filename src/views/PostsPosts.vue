@@ -60,7 +60,7 @@
         <table class="utils-table">
           <tr class="row row-title">
             <td class="item item-check">
-              <i class="fa" :class="[results.allChecked ? 'fa-check-square-o' : 'fa-square-o']"></i>
+              <i @click="toggleAllItemsCheckStatus" class="fa" :class="[results.allChecked ? 'fa-check-square-o' : 'fa-square-o']"></i>
             </td>
             <td class="item item-order">
               <span class="text">标题</span>
@@ -90,9 +90,9 @@
               <i v-show="search.sortby === 'date' && search.order === 'desc'" class="fa fa-sort-desc"></i>
             </td>
           </tr>
-          <tr v-for="item in results.details" class="row row-detail">
+          <tr v-for="(item, index) in results.details" class="row row-detail">
             <td class="item item-check">
-              <i class="fa" :class="[item.checked ? 'fa-check-square-o' : 'fa-square-o']"></i>
+              <i @click="toggleItemCheckStatus(index)" class="fa" :class="[item.checked ? 'fa-check-square-o' : 'fa-square-o']"></i>
             </td>
             <td class="item item-clilckable tl">
               <span @click="edit(item.post_id)" class="clickable">{{item.post_title}}</span>
@@ -209,6 +209,42 @@
     methods: {
       edit (postId) {
         this.$router.push(`/posts/edit/${postId}`)
+      },
+      toggleAllItemsCheckStatus () {
+        const _this = this
+        if (_this.results.allChecked) {
+          merge(_this.results, {
+            allChecked: false,
+            details: _this.results.details.map(item => {
+              item.checked = false
+              return item
+            })
+          })
+        } else {
+          merge(_this.results, {
+            allChecked: true,
+            details: _this.results.details.map(item => {
+              item.checked = true
+              return item
+            })
+          })
+        }
+      },
+      toggleItemCheckStatus (idx) {
+        const _this = this
+        if (_this.results.details[idx].checked) {
+          _this.results.details[idx].checked = false
+          if (_this.results.allChecked) {
+            _this.results.allChecked = false
+          }
+        } else {
+          _this.results.details[idx].checked = true
+          _this.$nextTick(() => {
+            if (_this.results.details.filter(item => !item.checked).length === 0) {
+              _this.results.allChecked = true
+            }
+          })
+        }
       },
       goPage (pageNum) {
         let _this = this
