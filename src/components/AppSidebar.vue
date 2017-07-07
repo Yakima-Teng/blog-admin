@@ -40,8 +40,14 @@
       ...mapGetters(['menus'])
     },
     methods: {
-      showMenus () { this.setMenus({ show: true }) },
-      hideMenus () { this.setMenus({ show: false }) },
+      showMenus () {
+        this.setMenus({ show: true })
+        window.localStorage.setItem('showMenus', '1')
+      },
+      hideMenus () {
+        this.setMenus({ show: false })
+        window.localStorage.setItem('showMenus', '0')
+      },
       toggleTopMenu (menu, idx) {
         let _this = this
         if (_this.menus.unfoldedIndex === idx) {

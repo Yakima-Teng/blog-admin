@@ -94,7 +94,7 @@
             <td class="item item-check">
               <i class="fa" :class="[item.checked ? 'fa-check-square-o' : 'fa-square-o']"></i>
             </td>
-            <td class="item item-clilckable">
+            <td class="item item-clilckable tl">
               <span @click="edit(item.post_id)" class="clickable">{{item.post_title}}</span>
             </td>
             <td class="item item-text">
@@ -109,7 +109,7 @@
             <td class="item item-text">
               <span class="text">{{item.comment_count}}</span>
             </td>
-            <td class="item item-text">
+            <td class="item item-text tl">
               <template v-if="item.post_date === item.post_modified">
                 <span class="text text-block">已发布</span>
                 <span class="text text-block">{{item.post_date}}</span>
@@ -145,7 +145,7 @@
 
 <script>
   import PageNavigation from '../components/PageNavigation.vue'
-  import { doMock, doGet, merge } from '../scripts/utils.js'
+  import { doMock, doGet, merge, timestampToFullString } from '../scripts/utils.js'
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
@@ -244,8 +244,8 @@
                   cat_slug: item.cat_slug,
                   tags: item.tags,
                   comment_count: item.comment_count,
-                  post_date: item.post_date,
-                  post_modified: item.post_modified_date,
+                  post_date: timestampToFullString(new Date(item.post_date).valueOf()),
+                  post_modified: timestampToFullString(new Date(item.post_modified_date).valueOf()),
                   post_excerpt: item.post_excerpt,
                   post_status: item.post_status,
                   comment_status: item.comment_status

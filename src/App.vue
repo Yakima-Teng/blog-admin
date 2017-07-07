@@ -35,7 +35,7 @@
   import AppFooter from './components/AppFooter.vue'
   import Alert from './components/Alert.vue'
   import Wait from './components/Wait.vue'
-  import { mapActions } from 'vuex'
+  import { mapMutations, mapActions } from 'vuex'
 
   export default {
     name: 'App',
@@ -46,10 +46,16 @@
       isShowingMenu () { return this.$store.state.menus.show }
     },
     methods: {
+      ...mapMutations(['setMenus']),
       ...mapActions(['load'])
     },
     created () {
       let _this = this
+      if (window.localStorage.getItem('showMenus')) {
+        _this.setMenus({
+          show: window.localStorage.getItem('showMenus') === '1'
+        })
+      }
       _this.load(true)
       setTimeout(() => {
         _this.load(false)

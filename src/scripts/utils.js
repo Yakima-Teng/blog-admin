@@ -194,7 +194,7 @@ const timestampToFullString = timestamp => {
   }
   timestamp = parseInt(timestamp)
   const d = new Date(timestamp)
-  const year = new Date(timestamp)
+  const year = new Date(timestamp).getFullYear()
   const month = toDouble(d.getMonth() + 1)
   const day = toDouble(d.getDate())
   const hour = toDouble(d.getHours())
